@@ -119,9 +119,12 @@ int main() {
         // stop timer for hash retrieval
         stop = std::chrono::high_resolution_clock::now();
         // calculate duration
-        duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        std::cout << "Song retrieval using Hash ran in " << duration.count() << " milliseconds\n\n";
-
+        auto duration1 = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        std::cout << "Song retrieval using Hash ran in " << duration1.count() << " milliseconds\n\n";
+        if (duration1 < duration){
+            std::cout << "Hash is faster than Trie here! \n";}
+        else{
+            std::cout << "Trie is faster than Hash here! \n";}
         std::string answer;
         std::cout << "Continue searching? (Y or N)\n";
         std::cin >> answer;
